@@ -1,16 +1,16 @@
-# Espressif TinyUSB fork
+# Espressif TinyUSB component
 
-This is a fork of upstream [TinyUSB](https://github.com/hathach/tinyusb) with integration into ESP-IDF build system.
-It is used mostly for rapid bugfixing and for releases independent from the upstream project.
-We try to push all bugfixes and features to the upstream.
+Upstream [TinyUSB](https://github.com/hathach/tinyusb) fork with integration into ESP-IDF build system.
 
 ## How to use
 
-There are two options of using TinyUSB with Espressif's SoCs.
+There are two options of using TinyUSB component with Espressif's SoCs:
 
-### 1. Use this component together with [Espressif TinyUSB additions](https://github.com/espressif/idf-extra-components/tree/master/usb/esp_tinyusb/)
+### 1. Use component via [Espressif TinyUSB additions](https://github.com/espressif/esp-usb/tree/master/device/esp_tinyusb)
 
-This is identical approach as in ESP-IDF 4.x releases. You can configure TinyUSB using Kconfig, as usual. Just add ``idf_component.yml`` to your main component with the following content::
+[Espressif TinyUSB additions](https://github.com/espressif/esp-usb/tree/master/device/esp_tinyusb) provides several preconfigured features to use benefits of TinyUSB stack faster.
+
+To use [Espressif TinyUSB additions](https://github.com/espressif/esp-usb/tree/master/device/esp_tinyusb), add ``idf_component.yml`` to your main component with the following content::
 
 ```yaml
 ## IDF Component Manager Manifest File
@@ -22,7 +22,10 @@ Or simply run:
 ```
 idf.py add-dependency "esp_tinyusb^1.0.0"
 ```
-### 2. Use TinyUSB only, without the [additions](https://github.com/espressif/idf-extra-components/tree/master/usb/esp_tinyusb/)
+
+Then, the Espressif TinyUSB component will be added automatically during resolving dependencies by the component manager.
+
+### 2. Use component directly
 
 Use this option for custom TinyUSB applications.
 In this case you will have to provide configuration header file ``tusb_config.h``. More information about TinyUSB configuration can be found [in official TinyUSB documentation](https://docs.tinyusb.org/en/latest/reference/getting_started.html).
